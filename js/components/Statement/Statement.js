@@ -73,6 +73,14 @@ export default class Statement extends Component {
 			            	</Typist> 
 				        }
 		        	</div>
+		        	<div className="col-12 row-1 text">
+		        		<p>Whatever you need, Kip gets you some cool stuff. Maybe even some Polar Bears, only if they are on sale and they arn't made with Carrots</p>
+		        	</div>
+		        	<div className="col-12 row-1 action">
+		        		<button>
+		        			SAVE THE ARTIC!
+		        		</button>
+		        	</div>
 		        </div>
 	      	</div>
 	    );

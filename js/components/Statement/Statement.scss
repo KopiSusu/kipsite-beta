@@ -4,6 +4,7 @@
 .statement {
 	position: relative;
 	text-align: center;
+	border-bottom: 1px dashed $borderColor;
 	@include animation(fadeInUp cubic-bezier(0.4, 0, 0.2, 1) 3s);
 
 	.card {
@@ -30,6 +31,20 @@
 				&.hightlight {
 					background: $primaryColor;
 				}
+			}
+		}
+
+		.text {
+			max-width: 500px;
+		}
+
+		.action {
+			padding: $padding*2;
+			button {
+				border: 0;
+				border-radius: $padding/2;
+				background: $secondaryColor;
+				padding: $padding $padding*2;
 			}
 		}
 
