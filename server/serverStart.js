@@ -6,13 +6,6 @@ var WebpackDevServer = require("webpack-dev-server");
 var webpack = require('webpack');
 var Config = require('../webpack/dev.config.js');
 
-Config.plugins.unshift(new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"development"'}}));
-
-Config.plugins.unshift(new webpack.HotModuleReplacementPlugin());
-Config.entry.unshift('webpack/hot/only-dev-server');
-
-Config.entry.unshift("webpack-dev-server/client?http://localhost:" + port + "/");
-
 var compiler = webpack(Config);
 
 var server = new WebpackDevServer(compiler, {
@@ -24,7 +17,7 @@ var server = new WebpackDevServer(compiler, {
 	inline: true
 });
 
-server.listen(port);
+server.listen(port, "0.0.0.0");
 
 
 

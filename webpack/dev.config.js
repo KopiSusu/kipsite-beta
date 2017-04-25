@@ -2,10 +2,13 @@ const webpack = require('webpack');
 const path = require('path');
 
 const assetsPath = path.resolve(__dirname, '../dist');
+var appDir = path.resolve(__dirname, '../js');
 
 module.exports = {
   entry: [
-    './js/client.js'
+    './js/index.js',
+    "webpack-dev-server/client?http://localhost:3001/",
+    'webpack/hot/only-dev-server'
   ],
   module: {
     loaders: [
@@ -41,9 +44,14 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
+    host: '0.0.0.0',
+    disableHostCheck: true,
     contentBase: assetsPath,
     historyApiFallback: true,
     hot: true
   },
-  plugins: []
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"development"'}})
+  ]
 };

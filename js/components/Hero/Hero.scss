@@ -4,11 +4,21 @@
 .hero {
 	position: relative;
 	overflow: hidden;
-	background: $fgColor;
 	padding: $ribbonHeight 0 0;
 	height: 500px;
 	width: 100%;
 	border-bottom: 1px solid $borderColor;
+	@include animation(fadeIn cubic-bezier(0.4, 0, 0.2, 1) 1.33s);
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(255,255,255,0.4);
+	}
 
 	& > * {
 		position: relative;
@@ -37,20 +47,39 @@
 			}
 
 			&:first-of-type {
-				top: 25%;
+				top: 75%;
 				left: 10%;
 			}
 			&:nth-of-type(2) {
-				top: 50%;
-				left: 25%;
+				top: 45%;
+				left: 33%;
 			}
 			&:nth-of-type(3) {
-				top: 37%;
+				top: 30%;
 				left: 65%;
 			}
 			&:last-of-type {
-				top: 70%;
-				left: 80%;
+				top: 30%;
+				left: 89%;
+			}
+
+			@media only screen and (max-width: 600px) {
+				&:first-of-type {
+					top: 25%;
+					left: 10%;
+				}
+				&:nth-of-type(2) {
+					top: 50%;
+					left: 25%;
+				}
+				&:nth-of-type(3) {
+					top: 37%;
+					left: 65%;
+				}
+				&:last-of-type {
+					top: 70%;
+					left: 80%;
+				}
 			}
 
 			.dot__bubble-enter {

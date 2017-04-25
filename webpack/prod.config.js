@@ -5,7 +5,8 @@ const assetsPath = path.resolve(__dirname, '../dist');
 
 module.exports = {
   entry: [
-    './js/client.js'
+    'babel-polyfill',
+    './js/index.js'
   ],
   module: {
     loaders: [

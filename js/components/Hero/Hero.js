@@ -29,11 +29,16 @@ export default class Hero extends Component {
 	componentWillMount() {
 		const { items } = this.props;
 
+		// Preload hero image (not sure if this will even help if the image is too large)
+		let hero = new Image();
+    	hero.src = 'https://s3.amazonaws.com/datadummy/kipBackground.jpg';	
+
 		// preload all images to cache on mount
 		_.map(items, (i) => {
 			let image = new Image();
 	    	image.src = i.imgSrc;	
 		})
+
 
 	}
 
@@ -54,12 +59,14 @@ export default class Hero extends Component {
 			}, 6000);
 		}
 	}
-
   	render() {
   		const { state: { selectedIndex }, props: { items } } = this;
 	    return (
-	      	<div className="hero"> 
-		        <div className="col-12 row-1 dots">
+	      	<div className="hero image" style={
+                {
+                  backgroundImage: `url(https://s3.amazonaws.com/datadummy/kipBackground.jpg)`
+                }}>
+		        <div className="row-1 dots">
 
 		        	{
 		        		_.map([0,1,2,3], (i) => {
